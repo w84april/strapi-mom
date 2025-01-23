@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_download_buttons",
+  "info": {
+    "displayName": "button_download",
+    "icon": "arrowDown",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "appstore",
+        "google_play"
+      ]
+    }
+  }
+}

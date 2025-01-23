@@ -1,0 +1,27 @@
+{
+    "collectionName": "components_blocks_cards",
+    "info": {
+        "displayName": "card",
+        "icon": "grid"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text"
+        },
+        "image": {
+            "allowedTypes": [
+                "images",
+                "files"
+            ],
+            "type": "media",
+            "multiple": false
+        },
+        "is_text_first": {
+            "type": "boolean"
+        }
+    }
+}

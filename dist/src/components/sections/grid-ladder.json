@@ -1,0 +1,15 @@
+{
+    "collectionName": "components_sections_grid_ladders",
+    "info": {
+        "displayName": "grid_ladder",
+        "icon": "walk"
+    },
+    "options": {},
+    "attributes": {
+        "steps": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.grid-ladder-step"
+        }
+    }
+}

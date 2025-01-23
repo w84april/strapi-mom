@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_blocks_block_ctas",
+    "info": {
+        "displayName": "block_cta",
+        "icon": "server"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "icon": {
+            "allowedTypes": [
+                "files",
+                "images"
+            ],
+            "type": "media",
+            "multiple": true
+        }
+    }
+}

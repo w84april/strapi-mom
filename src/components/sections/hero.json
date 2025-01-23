@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_sections_heroes",
+  "info": {
+    "displayName": "hero",
+    "icon": "picture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "button_cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.cta-button"
+    },
+    "button_download": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.download-button"
+    },
+    "featured_img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.stat"
+    }
+  }
+}

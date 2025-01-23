@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_blocks_grid_ladder_steps",
+  "info": {
+    "displayName": "grid_ladder_step"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "button_cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.cta-button"
+    },
+    "image": {
+      "allowedTypes": [
+        "files",
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

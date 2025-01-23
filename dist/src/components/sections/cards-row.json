@@ -1,0 +1,24 @@
+{
+    "collectionName": "components_sections_cards_rows",
+    "info": {
+        "displayName": "cards_row",
+        "icon": "apps",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "cards": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.card"
+        },
+        "title": {
+            "type": "string"
+        },
+        "block_cta": {
+            "type": "component",
+            "repeatable": false,
+            "component": "blocks.block-cta"
+        }
+    }
+}

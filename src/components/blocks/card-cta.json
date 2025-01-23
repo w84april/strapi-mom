@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_blocks_card_ctas",
+  "info": {
+    "displayName": "card_cta",
+    "icon": "expand"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "button_cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.cta-button"
+    },
+    "image_bg": {
+      "allowedTypes": [
+        "files",
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

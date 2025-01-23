@@ -1,0 +1,18 @@
+{
+    "collectionName": "components_sections_grid_displaceds",
+    "info": {
+        "displayName": "grid_displaced",
+        "icon": "apps"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "cards": {
+            "type": "component",
+            "repeatable": true,
+            "component": "blocks.card"
+        }
+    }
+}

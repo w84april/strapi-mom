@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_grids",
+  "info": {
+    "displayName": "grid",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "card_cta": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.card-cta"
+    },
+    "card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.card"
+    }
+  }
+}

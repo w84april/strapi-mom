@@ -1,0 +1,17 @@
+{
+    "collectionName": "components_blocks_cta_buttons",
+    "info": {
+        "displayName": "button_cta",
+        "icon": "arrowUp",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "url": {
+            "type": "string"
+        }
+    }
+}
