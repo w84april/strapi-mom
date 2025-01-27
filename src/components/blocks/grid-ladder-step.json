@@ -12,7 +12,7 @@
     "description": {
       "type": "string"
     },
-    "button_cta": {
+    "buttonCta": {
       "type": "component",
       "repeatable": false,
       "component": "blocks.cta-button"

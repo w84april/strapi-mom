@@ -381,7 +381,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    cards_row: Schema.Attribute.Component<'sections.cards-row', false>;
+    cardsRow: Schema.Attribute.Component<'sections.cards-row', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -75,7 +75,7 @@ export interface BlocksGridLadderStep extends Struct.ComponentSchema {
     displayName: 'gridLadderStep';
   };
   attributes: {
-    button_cta: Schema.Attribute.Component<'blocks.cta-button', false>;
+    buttonCta: Schema.Attribute.Component<'blocks.cta-button', false>;
     description: Schema.Attribute.String;
     image: Schema.Attribute.Media<'files' | 'images'>;
     title: Schema.Attribute.String;
@@ -116,10 +116,10 @@ export interface SectionsFooter extends Struct.ComponentSchema {
     icon: 'underline';
   };
   attributes: {
-    button_cta: Schema.Attribute.Component<'blocks.cta-button', false>;
-    button_download: Schema.Attribute.Component<'blocks.download-button', true>;
+    buttonCta: Schema.Attribute.Component<'blocks.cta-button', false>;
+    buttonDownload: Schema.Attribute.Component<'blocks.download-button', true>;
     cta: Schema.Attribute.String;
-    image_bg: Schema.Attribute.Media<'images' | 'files'>;
+    imageBg: Schema.Attribute.Media<'images' | 'files'>;
     title: Schema.Attribute.String;
   };
 }

@@ -22,7 +22,7 @@
             "repeatable": false,
             "component": "sections.hero"
         },
-        "cards_row": {
+        "cardsRow": {
             "type": "component",
             "repeatable": false,
             "component": "sections.cards-row"
