@@ -2,7 +2,8 @@
     "collectionName": "components_blocks_cards",
     "info": {
         "displayName": "card",
-        "icon": "grid"
+        "icon": "grid",
+        "description": ""
     },
     "options": {},
     "attributes": {
@@ -13,14 +14,15 @@
             "type": "text"
         },
         "image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
             "allowedTypes": [
                 "images",
                 "files"
-            ],
-            "type": "media",
-            "multiple": false
+            ]
         },
-        "is_text_first": {
+        "isTextFirst": {
             "type": "boolean"
         }
     }

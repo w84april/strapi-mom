@@ -13,17 +13,17 @@
         "description": {
             "type": "text"
         },
-        "button_cta": {
+        "buttonCta": {
             "type": "component",
             "repeatable": false,
             "component": "blocks.cta-button"
         },
-        "button_download": {
+        "buttonDownload": {
             "type": "component",
             "repeatable": true,
             "component": "blocks.download-button"
         },
-        "featured_img": {
+        "featuredImg": {
             "type": "media",
             "multiple": false,
             "required": false,

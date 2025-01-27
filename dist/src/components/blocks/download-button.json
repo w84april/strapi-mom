@@ -1,7 +1,7 @@
 {
     "collectionName": "components_blocks_download_buttons",
     "info": {
-        "displayName": "button_download",
+        "displayName": "buttonDownload",
         "icon": "arrowDown",
         "description": ""
     },

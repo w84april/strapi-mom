@@ -2,14 +2,15 @@
   "collectionName": "components_sections_grids",
   "info": {
     "displayName": "grid",
-    "icon": "apps"
+    "icon": "apps",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string"
     },
-    "card_cta": {
+    "cardCta": {
       "type": "component",
       "repeatable": true,
       "component": "blocks.card-cta"

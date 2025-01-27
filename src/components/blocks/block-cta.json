@@ -1,8 +1,9 @@
 {
   "collectionName": "components_blocks_block_ctas",
   "info": {
-    "displayName": "block_cta",
-    "icon": "server"
+    "displayName": "blockCta",
+    "icon": "server",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,12 +11,13 @@
       "type": "string"
     },
     "icon": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "files",
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }

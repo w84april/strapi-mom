@@ -32,12 +32,12 @@
       "repeatable": false,
       "component": "sections.grid"
     },
-    "grid_ladder": {
+    "gridLadder": {
       "type": "component",
       "repeatable": false,
       "component": "sections.grid-ladder"
     },
-    "grid_displaced": {
+    "gridDisplaced": {
       "type": "component",
       "repeatable": false,
       "component": "sections.grid-displaced"

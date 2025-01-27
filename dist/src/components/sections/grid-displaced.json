@@ -1,8 +1,9 @@
 {
     "collectionName": "components_sections_grid_displaceds",
     "info": {
-        "displayName": "grid_displaced",
-        "icon": "apps"
+        "displayName": "gridDisplaced",
+        "icon": "apps",
+        "description": ""
     },
     "options": {},
     "attributes": {

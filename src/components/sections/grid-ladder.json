@@ -1,8 +1,9 @@
 {
   "collectionName": "components_sections_grid_ladders",
   "info": {
-    "displayName": "grid_ladder",
-    "icon": "walk"
+    "displayName": "gridLadder",
+    "icon": "walk",
+    "description": ""
   },
   "options": {},
   "attributes": {

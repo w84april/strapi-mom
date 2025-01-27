@@ -3,7 +3,8 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface BlocksBlockCta extends Struct.ComponentSchema {
   collectionName: 'components_blocks_block_ctas';
   info: {
-    displayName: 'block_cta';
+    description: '';
+    displayName: 'blockCta';
     icon: 'server';
   };
   attributes: {
@@ -15,13 +16,14 @@ export interface BlocksBlockCta extends Struct.ComponentSchema {
 export interface BlocksCard extends Struct.ComponentSchema {
   collectionName: 'components_blocks_cards';
   info: {
+    description: '';
     displayName: 'card';
     icon: 'grid';
   };
   attributes: {
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files'>;
-    is_text_first: Schema.Attribute.Boolean;
+    isTextFirst: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
   };
 }
@@ -29,13 +31,14 @@ export interface BlocksCard extends Struct.ComponentSchema {
 export interface BlocksCardCta extends Struct.ComponentSchema {
   collectionName: 'components_blocks_card_ctas';
   info: {
-    displayName: 'card_cta';
+    description: '';
+    displayName: 'cardCta';
     icon: 'expand';
   };
   attributes: {
-    button_cta: Schema.Attribute.Component<'blocks.cta-button', false>;
+    buttonCta: Schema.Attribute.Component<'blocks.cta-button', false>;
     description: Schema.Attribute.String;
-    image_bg: Schema.Attribute.Media<'files' | 'images'>;
+    imageBg: Schema.Attribute.Media<'images' | 'files'>;
     title: Schema.Attribute.String;
   };
 }
@@ -44,7 +47,7 @@ export interface BlocksCtaButton extends Struct.ComponentSchema {
   collectionName: 'components_blocks_cta_buttons';
   info: {
     description: '';
-    displayName: 'button_cta';
+    displayName: 'buttonCta';
     icon: 'arrowUp';
   };
   attributes: {
@@ -57,7 +60,7 @@ export interface BlocksDownloadButton extends Struct.ComponentSchema {
   collectionName: 'components_blocks_download_buttons';
   info: {
     description: '';
-    displayName: 'button_download';
+    displayName: 'buttonDownload';
     icon: 'arrowDown';
   };
   attributes: {
@@ -68,7 +71,8 @@ export interface BlocksDownloadButton extends Struct.ComponentSchema {
 export interface BlocksGridLadderStep extends Struct.ComponentSchema {
   collectionName: 'components_blocks_grid_ladder_steps';
   info: {
-    displayName: 'grid_ladder_step';
+    description: '';
+    displayName: 'gridLadderStep';
   };
   attributes: {
     button_cta: Schema.Attribute.Component<'blocks.cta-button', false>;
@@ -94,12 +98,12 @@ export interface SectionsCardsRow extends Struct.ComponentSchema {
   collectionName: 'components_sections_cards_rows';
   info: {
     description: '';
-    displayName: 'cards_row';
+    displayName: 'cardsRow';
     icon: 'apps';
   };
   attributes: {
-    block_cta: Schema.Attribute.Component<'blocks.block-cta', false>;
     cards: Schema.Attribute.Component<'blocks.card', true>;
+    ctaBlock: Schema.Attribute.Component<'blocks.block-cta', false>;
     title: Schema.Attribute.String;
   };
 }
@@ -123,12 +127,13 @@ export interface SectionsFooter extends Struct.ComponentSchema {
 export interface SectionsGrid extends Struct.ComponentSchema {
   collectionName: 'components_sections_grids';
   info: {
+    description: '';
     displayName: 'grid';
     icon: 'apps';
   };
   attributes: {
     card: Schema.Attribute.Component<'blocks.card', true>;
-    card_cta: Schema.Attribute.Component<'blocks.card-cta', true>;
+    cardCta: Schema.Attribute.Component<'blocks.card-cta', true>;
     title: Schema.Attribute.String;
   };
 }
@@ -136,7 +141,8 @@ export interface SectionsGrid extends Struct.ComponentSchema {
 export interface SectionsGridDisplaced extends Struct.ComponentSchema {
   collectionName: 'components_sections_grid_displaceds';
   info: {
-    displayName: 'grid_displaced';
+    description: '';
+    displayName: 'gridDisplaced';
     icon: 'apps';
   };
   attributes: {
@@ -148,7 +154,8 @@ export interface SectionsGridDisplaced extends Struct.ComponentSchema {
 export interface SectionsGridLadder extends Struct.ComponentSchema {
   collectionName: 'components_sections_grid_ladders';
   info: {
-    displayName: 'grid_ladder';
+    description: '';
+    displayName: 'gridLadder';
     icon: 'walk';
   };
   attributes: {
@@ -164,10 +171,10 @@ export interface SectionsHero extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    button_cta: Schema.Attribute.Component<'blocks.cta-button', false>;
-    button_download: Schema.Attribute.Component<'blocks.download-button', true>;
+    buttonCta: Schema.Attribute.Component<'blocks.cta-button', false>;
+    buttonDownload: Schema.Attribute.Component<'blocks.download-button', true>;
     description: Schema.Attribute.Text;
-    featured_img: Schema.Attribute.Media<'images' | 'files'>;
+    featuredImg: Schema.Attribute.Media<'images' | 'files'>;
     stats: Schema.Attribute.Component<'blocks.stat', true>;
     title: Schema.Attribute.String;
   };

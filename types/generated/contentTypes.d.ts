@@ -387,11 +387,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     footer: Schema.Attribute.Component<'sections.footer', false>;
     grid: Schema.Attribute.Component<'sections.grid', false>;
-    grid_displaced: Schema.Attribute.Component<
-      'sections.grid-displaced',
-      false
-    >;
-    grid_ladder: Schema.Attribute.Component<'sections.grid-ladder', false>;
+    gridDisplaced: Schema.Attribute.Component<'sections.grid-displaced', false>;
+    gridLadder: Schema.Attribute.Component<'sections.grid-ladder', false>;
     hero: Schema.Attribute.Component<'sections.hero', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
@@ -409,6 +406,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
 export interface ApiPostPost extends Struct.CollectionTypeSchema {
   collectionName: 'posts';
   info: {
+    description: '';
     displayName: 'Post';
     pluralName: 'posts';
     singularName: 'post';
@@ -421,7 +419,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image_featured: Schema.Attribute.Media<'images'>;
+    imageFeatured: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::post.post'> &
       Schema.Attribute.Private;

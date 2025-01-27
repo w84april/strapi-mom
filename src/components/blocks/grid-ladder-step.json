@@ -1,7 +1,8 @@
 {
   "collectionName": "components_blocks_grid_ladder_steps",
   "info": {
-    "displayName": "grid_ladder_step"
+    "displayName": "gridLadderStep",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,12 +18,13 @@
       "component": "blocks.cta-button"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "files",
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

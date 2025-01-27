@@ -1,7 +1,7 @@
 {
     "collectionName": "components_sections_cards_rows",
     "info": {
-        "displayName": "cards_row",
+        "displayName": "cardsRow",
         "icon": "apps",
         "description": ""
     },
@@ -15,7 +15,7 @@
         "title": {
             "type": "string"
         },
-        "block_cta": {
+        "ctaBlock": {
             "type": "component",
             "repeatable": false,
             "component": "blocks.block-cta"
