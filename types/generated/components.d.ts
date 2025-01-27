@@ -10,6 +10,7 @@ export interface BlocksBlockCta extends Struct.ComponentSchema {
   attributes: {
     icon: Schema.Attribute.Media<'files' | 'images', true>;
     title: Schema.Attribute.String;
+    url: Schema.Attribute.String;
   };
 }
 
