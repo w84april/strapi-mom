@@ -69,6 +69,18 @@ export interface BlocksDownloadButton extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksFaqSectionItem extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_faq_section_items';
+  info: {
+    displayName: 'faqSectionItem';
+    icon: 'question';
+  };
+  attributes: {
+    answer: Schema.Attribute.Text;
+    question: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksGridLadderStep extends Struct.ComponentSchema {
   collectionName: 'components_blocks_grid_ladder_steps';
   info: {
@@ -106,6 +118,18 @@ export interface SectionsCardsRow extends Struct.ComponentSchema {
     cards: Schema.Attribute.Component<'blocks.card', true>;
     ctaBlock: Schema.Attribute.Component<'blocks.block-cta', false>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsFaqSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_faq_sections';
+  info: {
+    displayName: 'faqSection';
+    icon: 'layer';
+  };
+  attributes: {
+    faqSectionItem: Schema.Attribute.Component<'blocks.faq-section-item', true>;
+    sectionTitle: Schema.Attribute.String;
   };
 }
 
@@ -189,9 +213,11 @@ declare module '@strapi/strapi' {
       'blocks.card-cta': BlocksCardCta;
       'blocks.cta-button': BlocksCtaButton;
       'blocks.download-button': BlocksDownloadButton;
+      'blocks.faq-section-item': BlocksFaqSectionItem;
       'blocks.grid-ladder-step': BlocksGridLadderStep;
       'blocks.stat': BlocksStat;
       'sections.cards-row': SectionsCardsRow;
+      'sections.faq-section': SectionsFaqSection;
       'sections.footer': SectionsFooter;
       'sections.grid': SectionsGrid;
       'sections.grid-displaced': SectionsGridDisplaced;
