@@ -29,6 +29,14 @@
     },
     "title": {
       "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "news",
+        "announcements",
+        "tutorials"
+      ]
     }
   }
 }

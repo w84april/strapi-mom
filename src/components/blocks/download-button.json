@@ -13,6 +13,9 @@
         "appstore",
         "google_play"
       ]
+    },
+    "url": {
+      "type": "string"
     }
   }
 }

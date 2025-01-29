@@ -65,6 +65,7 @@ export interface BlocksDownloadButton extends Struct.ComponentSchema {
     icon: 'arrowDown';
   };
   attributes: {
+    url: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['appstore', 'google_play']>;
   };
 }
