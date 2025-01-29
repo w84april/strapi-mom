@@ -31,12 +31,14 @@
       "type": "string"
     },
     "type": {
-      "type": "enumeration",
-      "enum": [
+      "type": "customField",
+      "default": "[]",
+      "options": [
         "news",
         "announcements",
         "tutorials"
-      ]
+      ],
+      "customField": "plugin::multi-select.multi-select"
     }
   }
 }
