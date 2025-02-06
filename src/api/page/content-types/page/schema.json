@@ -10,42 +10,81 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "slug": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "hero": {
       "type": "component",
       "repeatable": false,
-      "component": "sections.hero"
+      "component": "sections.hero",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "cardsRow": {
       "type": "component",
       "repeatable": false,
-      "component": "sections.cards-row"
+      "component": "sections.cards-row",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "grid": {
       "type": "component",
       "repeatable": false,
-      "component": "sections.grid"
+      "component": "sections.grid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "gridLadder": {
       "type": "component",
       "repeatable": false,
-      "component": "sections.grid-ladder"
+      "component": "sections.grid-ladder",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "gridDisplaced": {
       "type": "component",
       "repeatable": false,
-      "component": "sections.grid-displaced"
+      "component": "sections.grid-displaced",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "footer": {
       "type": "component",
       "repeatable": false,
-      "component": "sections.footer"
+      "component": "sections.footer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
