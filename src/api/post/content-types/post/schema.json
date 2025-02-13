@@ -58,11 +58,62 @@
       "type": "customField",
       "default": "[]",
       "options": [
-        "news",
-        "announcements",
-        "tutorials"
+        "Partner Integrations",
+        "Ethereum",
+        "Crypto 101",
+        "Bitcoin",
+        "Crypto pro",
+        "Thought Leadership",
+        "Governance Newsletters",
+        "Newsletter"
       ],
       "customField": "plugin::multi-select.multi-select"
+    },
+    "tags": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "customField",
+      "default": "[]",
+      "options": [
+        "Trading",
+        "Defi",
+        "Dex",
+        "Ethereum",
+        "Trader",
+        "Bitcoin",
+        "Finance",
+        "News",
+        "Wallet",
+        "Cryptocurrency",
+        "Thorchain",
+        "Shapeshift",
+        "Culture",
+        "Dao",
+        "Keepkey",
+        "Optimism",
+        "Mobile",
+        "Arbitrum",
+        "Developer",
+        "Bitcoin Wallet",
+        "Security",
+        "Fox Token",
+        "Ledger",
+        "Bitcoin Price",
+        "Trezor",
+        "Coincap"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "summary": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "text"
     }
   }
 }

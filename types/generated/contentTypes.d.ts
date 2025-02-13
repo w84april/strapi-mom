@@ -528,6 +528,50 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    summary: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    tags: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'Trading',
+          'Defi',
+          'Dex',
+          'Ethereum',
+          'Trader',
+          'Bitcoin',
+          'Finance',
+          'News',
+          'Wallet',
+          'Cryptocurrency',
+          'Thorchain',
+          'Shapeshift',
+          'Culture',
+          'Dao',
+          'Keepkey',
+          'Optimism',
+          'Mobile',
+          'Arbitrum',
+          'Developer',
+          'Bitcoin Wallet',
+          'Security',
+          'Fox Token',
+          'Ledger',
+          'Bitcoin Price',
+          'Trezor',
+          'Coincap',
+        ]
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'[]'>;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -537,7 +581,16 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     type: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<
         'plugin::multi-select.multi-select',
-        ['news', 'announcements', 'tutorials']
+        [
+          'Partner Integrations',
+          'Ethereum',
+          'Crypto 101',
+          'Bitcoin',
+          'Crypto pro',
+          'Thought Leadership',
+          'Governance Newsletters',
+          'Newsletter',
+        ]
       > &
       Schema.Attribute.DefaultTo<'[]'>;
     updatedAt: Schema.Attribute.DateTime;
