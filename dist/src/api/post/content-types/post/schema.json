@@ -58,13 +58,13 @@
             "type": "customField",
             "default": "[]",
             "options": [
-                "Partner Integrations",
+                "Partner Integrations:Partner_Integrations",
                 "Ethereum",
-                "Crypto 101",
+                "Crypto 101:Crypto_101",
                 "Bitcoin",
-                "Crypto pro",
-                "Thought Leadership",
-                "Governance Newsletters",
+                "Crypto pro:Crypto_pro",
+                "Thought Leadership:Thought_Leadership",
+                "Governance Newsletters:Governance_Newsletters",
                 "Newsletter"
             ],
             "customField": "plugin::multi-select.multi-select"

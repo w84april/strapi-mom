@@ -582,13 +582,13 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       Schema.Attribute.CustomField<
         'plugin::multi-select.multi-select',
         [
-          'Partner Integrations',
+          'Partner Integrations:Partner_Integrations',
           'Ethereum',
-          'Crypto 101',
+          'Crypto 101:Crypto_101',
           'Bitcoin',
-          'Crypto pro',
-          'Thought Leadership',
-          'Governance Newsletters',
+          'Crypto pro:Crypto_pro',
+          'Thought Leadership:Thought_Leadership',
+          'Governance Newsletters:Governance_Newsletters',
           'Newsletter',
         ]
       > &
