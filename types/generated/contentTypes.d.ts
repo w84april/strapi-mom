@@ -599,6 +599,42 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTemplateTemplate extends Struct.CollectionTypeSchema {
+  collectionName: 'templates';
+  info: {
+    description: '';
+    displayName: 'template';
+    pluralName: 'templates';
+    singularName: 'template';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    CtaGrid: Schema.Attribute.Component<'sections.cta-grid', false>;
+    FAQ: Schema.Attribute.Component<'sections.faq-section', false>;
+    featuredImage: Schema.Attribute.Media<'images'>;
+    GridEven: Schema.Attribute.Component<'sections.grid-even', false>;
+    GridUneven: Schema.Attribute.Component<'sections.grid-uneven', false>;
+    header: Schema.Attribute.Component<'sections.header', false>;
+    LearnArticle: Schema.Attribute.Component<'sections.learn-article', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::template.template'
+    > &
+      Schema.Attribute.Private;
+    Opportunities: Schema.Attribute.Component<'sections.opportunities', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1111,6 +1147,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::page.page': ApiPagePage;
       'api::post.post': ApiPostPost;
+      'api::template.template': ApiTemplateTemplate;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

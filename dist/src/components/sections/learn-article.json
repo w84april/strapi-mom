@@ -1,0 +1,16 @@
+{
+    "collectionName": "components_sections_learn_articles",
+    "info": {
+        "displayName": "LearnArticle",
+        "icon": "code"
+    },
+    "options": {},
+    "attributes": {
+        "question": {
+            "type": "string"
+        },
+        "answer": {
+            "type": "text"
+        }
+    }
+}

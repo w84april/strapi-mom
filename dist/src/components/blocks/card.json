@@ -24,6 +24,14 @@
         },
         "isTextFirst": {
             "type": "boolean"
+        },
+        "link": {
+            "type": "string"
+        },
+        "buttonCta": {
+            "type": "component",
+            "repeatable": false,
+            "component": "blocks.cta-button"
         }
     }
 }
