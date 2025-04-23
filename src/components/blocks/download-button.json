@@ -12,10 +12,12 @@
       "enum": [
         "appstore",
         "google_play"
-      ]
+      ],
+      "required": true
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

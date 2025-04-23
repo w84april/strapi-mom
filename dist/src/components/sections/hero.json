@@ -36,6 +36,9 @@
             "type": "component",
             "repeatable": true,
             "component": "blocks.stat"
+        },
+        "externalTitle": {
+            "type": "string"
         }
     }
 }

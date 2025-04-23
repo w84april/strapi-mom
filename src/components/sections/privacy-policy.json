@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_privacy_policies",
+  "info": {
+    "displayName": "Privacy Policy",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "policy": {
+      "type": "richtext",
+      "required": true
+    },
+    "date": {
+      "type": "date"
+    }
+  }
+}

@@ -24,10 +24,11 @@ export interface BlocksCard extends Struct.ComponentSchema {
   attributes: {
     buttonCta: Schema.Attribute.Component<'blocks.cta-button', false>;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files'>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     isTextFirst: Schema.Attribute.Boolean;
+    items: Schema.Attribute.Component<'blocks.chain', true>;
     link: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -60,6 +61,18 @@ export interface BlocksCardOpportunity extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksChain extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_chains';
+  info: {
+    description: '';
+    displayName: 'chain';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksCtaButton extends Struct.ComponentSchema {
   collectionName: 'components_blocks_cta_buttons';
   info: {
@@ -68,8 +81,8 @@ export interface BlocksCtaButton extends Struct.ComponentSchema {
     icon: 'arrowUp';
   };
   attributes: {
-    title: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -81,8 +94,9 @@ export interface BlocksDownloadButton extends Struct.ComponentSchema {
     icon: 'arrowDown';
   };
   attributes: {
-    url: Schema.Attribute.String;
-    variant: Schema.Attribute.Enumeration<['appstore', 'google_play']>;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+    variant: Schema.Attribute.Enumeration<['appstore', 'google_play']> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -106,7 +120,7 @@ export interface BlocksGridLadderStep extends Struct.ComponentSchema {
   };
   attributes: {
     buttonCta: Schema.Attribute.Component<'blocks.cta-button', false>;
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'files' | 'images'>;
     title: Schema.Attribute.String;
   };
@@ -143,7 +157,8 @@ export interface SectionsCardsRow extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {
-    cards: Schema.Attribute.Component<'blocks.card', true>;
+    cards: Schema.Attribute.Component<'blocks.card', true> &
+      Schema.Attribute.Required;
     ctaBlock: Schema.Attribute.Component<'blocks.block-cta', false>;
     title: Schema.Attribute.String;
   };
@@ -159,7 +174,6 @@ export interface SectionsCtaGrid extends Struct.ComponentSchema {
   attributes: {
     CardHuge: Schema.Attribute.Component<'blocks.card', true>;
     CardsRow: Schema.Attribute.Component<'sections.cards-row', false>;
-    Hero: Schema.Attribute.Component<'sections.hero', false>;
     title: Schema.Attribute.String;
   };
 }
@@ -173,22 +187,6 @@ export interface SectionsFaqSection extends Struct.ComponentSchema {
   attributes: {
     faqSectionItem: Schema.Attribute.Component<'blocks.faq-section-item', true>;
     sectionTitle: Schema.Attribute.String;
-  };
-}
-
-export interface SectionsFooter extends Struct.ComponentSchema {
-  collectionName: 'components_sections_footers';
-  info: {
-    description: '';
-    displayName: 'footer';
-    icon: 'underline';
-  };
-  attributes: {
-    buttonCta: Schema.Attribute.Component<'blocks.cta-button', false>;
-    buttonDownload: Schema.Attribute.Component<'blocks.download-button', true>;
-    cta: Schema.Attribute.String;
-    imageBg: Schema.Attribute.Media<'images' | 'files'>;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -284,6 +282,7 @@ export interface SectionsHero extends Struct.ComponentSchema {
     buttonCta: Schema.Attribute.Component<'blocks.cta-button', false>;
     buttonDownload: Schema.Attribute.Component<'blocks.download-button', true>;
     description: Schema.Attribute.Text;
+    externalTitle: Schema.Attribute.String;
     featuredImg: Schema.Attribute.Media<'images' | 'files'>;
     stats: Schema.Attribute.Component<'blocks.stat', true>;
     title: Schema.Attribute.String;
@@ -317,6 +316,20 @@ export interface SectionsOpportunities extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsPrivacyPolicy extends Struct.ComponentSchema {
+  collectionName: 'components_sections_privacy_policies';
+  info: {
+    description: '';
+    displayName: 'Privacy Policy';
+    icon: 'bulletList';
+  };
+  attributes: {
+    date: Schema.Attribute.Date;
+    policy: Schema.Attribute.RichText & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -324,6 +337,7 @@ declare module '@strapi/strapi' {
       'blocks.card': BlocksCard;
       'blocks.card-cta': BlocksCardCta;
       'blocks.card-opportunity': BlocksCardOpportunity;
+      'blocks.chain': BlocksChain;
       'blocks.cta-button': BlocksCtaButton;
       'blocks.download-button': BlocksDownloadButton;
       'blocks.faq-section-item': BlocksFaqSectionItem;
@@ -333,7 +347,6 @@ declare module '@strapi/strapi' {
       'sections.cards-row': SectionsCardsRow;
       'sections.cta-grid': SectionsCtaGrid;
       'sections.faq-section': SectionsFaqSection;
-      'sections.footer': SectionsFooter;
       'sections.grid': SectionsGrid;
       'sections.grid-displaced': SectionsGridDisplaced;
       'sections.grid-even': SectionsGridEven;
@@ -343,6 +356,7 @@ declare module '@strapi/strapi' {
       'sections.hero': SectionsHero;
       'sections.learn-article': SectionsLearnArticle;
       'sections.opportunities': SectionsOpportunities;
+      'sections.privacy-policy': SectionsPrivacyPolicy;
     }
   }
 }

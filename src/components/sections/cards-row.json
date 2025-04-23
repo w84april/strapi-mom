@@ -10,7 +10,8 @@
     "cards": {
       "type": "component",
       "repeatable": true,
-      "component": "blocks.card"
+      "component": "blocks.card",
+      "required": true
     },
     "title": {
       "type": "string"

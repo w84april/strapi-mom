@@ -369,6 +369,112 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDefiWalletDefiWallet extends Struct.SingleTypeSchema {
+  collectionName: 'defi_wallets';
+  info: {
+    description: '';
+    displayName: 'Defi Wallet';
+    pluralName: 'defi-wallets';
+    singularName: 'defi-wallet';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonCta: Schema.Attribute.Component<'blocks.cta-button', false> &
+      Schema.Attribute.Required;
+    cardsRow: Schema.Attribute.Component<'sections.cards-row', false> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    featuredImg: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::defi-wallet.defi-wallet'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDiscoverDiscover extends Struct.CollectionTypeSchema {
+  collectionName: 'discovers';
+  info: {
+    description: '';
+    displayName: 'Discover';
+    pluralName: 'discovers';
+    singularName: 'discover';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    featuredImg: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    features: Schema.Attribute.Component<'blocks.grid-ladder-step', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::discover.discover'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    tag: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<
+      ['THORChain', 'DeFi', 'AI', 'Classic', 'Trading']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEarnEarn extends Struct.SingleTypeSchema {
+  collectionName: 'earns';
+  info: {
+    displayName: 'Earn';
+    pluralName: 'earns';
+    singularName: 'earn';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonCta: Schema.Attribute.Component<'blocks.cta-button', false> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    featuredImg: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    grid: Schema.Attribute.Component<'sections.grid', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::earn.earn'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFaqFaq extends Struct.SingleTypeSchema {
   collectionName: 'faqs';
   info: {
@@ -410,76 +516,137 @@ export interface ApiFaqFaq extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiPagePage extends Struct.CollectionTypeSchema {
-  collectionName: 'pages';
+export interface ApiMobileAppMobileApp extends Struct.SingleTypeSchema {
+  collectionName: 'mobile_apps';
   info: {
     description: '';
-    displayName: 'Page';
-    pluralName: 'pages';
-    singularName: 'page';
+    displayName: 'Mobile app';
+    pluralName: 'mobile-apps';
+    singularName: 'mobile-app';
   };
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    cardsRow: Schema.Attribute.Component<'sections.cards-row', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    buttonDownload: Schema.Attribute.Component<'blocks.download-button', true> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    footer: Schema.Attribute.Component<'sections.footer', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    grid: Schema.Attribute.Component<'sections.grid', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    gridDisplaced: Schema.Attribute.Component<
-      'sections.grid-displaced',
-      false
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    featuredImg: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
     > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+      Schema.Attribute.Required;
     gridLadder: Schema.Attribute.Component<'sections.grid-ladder', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    hero: Schema.Attribute.Component<'sections.hero', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mobile-app.mobile-app'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNewsroomNewsroom extends Struct.CollectionTypeSchema {
+  collectionName: 'newsrooms';
+  info: {
+    description: '';
+    displayName: 'Newsroom';
+    pluralName: 'newsrooms';
+    singularName: 'newsroom';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Schema.Attribute.String;
+    category: Schema.Attribute.Enumeration<['In The News', 'Press Releases']> &
+      Schema.Attribute.Required;
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    externalURL: Schema.Attribute.String;
+    featuredImg: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::newsroom.newsroom'
+    > &
+      Schema.Attribute.Private;
+    postSummary: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    publishedOn: Schema.Attribute.Date & Schema.Attribute.Required;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    tags: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'cryptocurrency',
+          'defi',
+          'ethereum',
+          'finance',
+          'culture',
+          'dex',
+          'bitcoin',
+          'dao',
+          'shapeshift',
+          'keepkey',
+          'news',
+          'trading',
+          'bitcoin-wallet',
+          'security',
+          'developer',
+          'bitcoin-price',
+          'optimism',
+          'trader',
+          'ledger',
+          'mobile',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNotificationNotification extends Struct.SingleTypeSchema {
+  collectionName: 'notifications';
+  info: {
+    description: '';
+    displayName: 'Notification';
+    pluralName: 'notifications';
+    singularName: 'notification';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    enabled: Schema.Attribute.Boolean;
+    href: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::notification.notification'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    tag: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['modal', 'popup', 'bar']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -512,7 +679,13 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    imageFeatured: Schema.Attribute.Media<'images'> &
+    featuredImg: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    isFeatured: Schema.Attribute.Boolean &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -599,13 +772,12 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiTemplateTemplate extends Struct.CollectionTypeSchema {
-  collectionName: 'templates';
+export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
+  collectionName: 'privacy_policies';
   info: {
-    description: '';
-    displayName: 'template';
-    pluralName: 'templates';
-    singularName: 'template';
+    displayName: 'Privacy Policy';
+    pluralName: 'privacy-policies';
+    singularName: 'privacy-policy';
   };
   options: {
     draftAndPublish: true;
@@ -614,21 +786,209 @@ export interface ApiTemplateTemplate extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    CtaGrid: Schema.Attribute.Component<'sections.cta-grid', false>;
-    FAQ: Schema.Attribute.Component<'sections.faq-section', false>;
-    featuredImage: Schema.Attribute.Media<'images'>;
-    GridEven: Schema.Attribute.Component<'sections.grid-even', false>;
-    GridUneven: Schema.Attribute.Component<'sections.grid-uneven', false>;
-    header: Schema.Attribute.Component<'sections.header', false>;
-    LearnArticle: Schema.Attribute.Component<'sections.learn-article', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::template.template'
+      'api::privacy-policy.privacy-policy'
     > &
       Schema.Attribute.Private;
-    Opportunities: Schema.Attribute.Component<'sections.opportunities', false>;
+    policy: Schema.Attribute.Component<'sections.privacy-policy', true>;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSupportedChainSupportedChain
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'supported_chains';
+  info: {
+    description: '';
+    displayName: 'Supported Chain';
+    pluralName: 'supported-chains';
+    singularName: 'supported-chain';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    actions: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['Hodl', 'Earn', 'Trade', 'Borrow', 'Buy & Sell', 'Send & Receive']
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    featuredImg: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    features: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'ShapeShift wallet',
+          'Hardware wallet support',
+          'Easily buy in seconds',
+          'Self-custodial Redefined',
+          'Jupiter Exchange',
+          'Multichain Snap',
+          'Your keys',
+          'Thor Streaming swaps',
+          'Thor Trade',
+          'Thor rFox',
+          'Thor Lending',
+          'Thor Liquidity Pool',
+          'Thor RUNE Pool',
+          'Saver vaults',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[\n  "ShapeShift wallet",\n  "Hardware wallet support",\n  "Easily buy in seconds",\n  "Self-custodial Redefined"\n]'>;
+    foxImg: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::supported-chain.supported-chain'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
+    typeOfChain: Schema.Attribute.Enumeration<
+      ['EVM', 'Cosmos', 'Bitcoin', 'Solana']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSupportedProtocolSupportedProtocol
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'supported_protocols';
+  info: {
+    description: '';
+    displayName: 'Supported Protocol';
+    pluralName: 'supported-protocols';
+    singularName: 'supported-protocol';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    collabDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    featuredImg: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    isFeatured: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::supported-protocol.supported-protocol'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSupportedWalletSupportedWallet
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'supported_wallets';
+  info: {
+    description: '';
+    displayName: 'Supported Wallet';
+    pluralName: 'supported-wallets';
+    singularName: 'supported-wallet';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    featuredImg: Schema.Attribute.Media<'images'>;
+    isFeatured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::supported-wallet.supported-wallet'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTermsOfServiceTermsOfService
+  extends Struct.SingleTypeSchema {
+  collectionName: 'terms_of_services';
+  info: {
+    displayName: 'Terms of Service';
+    pluralName: 'terms-of-services';
+    singularName: 'terms-of-service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::terms-of-service.terms-of-service'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    terms: Schema.Attribute.Component<'sections.privacy-policy', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTradeTrade extends Struct.SingleTypeSchema {
+  collectionName: 'trades';
+  info: {
+    description: '';
+    displayName: 'Trade';
+    pluralName: 'trades';
+    singularName: 'trade';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonCta: Schema.Attribute.Component<'blocks.cta-button', false>;
+    cardsRow: Schema.Attribute.Component<'sections.cards-row', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    featuredImg: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    gridDisplaced: Schema.Attribute.Component<'sections.grid-displaced', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::trade.trade'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    stats: Schema.Attribute.Component<'blocks.stat', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1144,10 +1504,20 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::defi-wallet.defi-wallet': ApiDefiWalletDefiWallet;
+      'api::discover.discover': ApiDiscoverDiscover;
+      'api::earn.earn': ApiEarnEarn;
       'api::faq.faq': ApiFaqFaq;
-      'api::page.page': ApiPagePage;
+      'api::mobile-app.mobile-app': ApiMobileAppMobileApp;
+      'api::newsroom.newsroom': ApiNewsroomNewsroom;
+      'api::notification.notification': ApiNotificationNotification;
       'api::post.post': ApiPostPost;
-      'api::template.template': ApiTemplateTemplate;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
+      'api::supported-chain.supported-chain': ApiSupportedChainSupportedChain;
+      'api::supported-protocol.supported-protocol': ApiSupportedProtocolSupportedProtocol;
+      'api::supported-wallet.supported-wallet': ApiSupportedWalletSupportedWallet;
+      'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
+      'api::trade.trade': ApiTradeTrade;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
